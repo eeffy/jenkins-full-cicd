@@ -10,7 +10,7 @@ pipeline {
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
     //NEXUS_USER = "$NEXUS_CREDS_USR"
     //NEXUS_PASSWORD = "$Nexus-Token"
-    //NEXUS_URL = "172.31.18.62:8081"
+    //NEXUS_URL = "18.237.126.155:8081"
     //NEXUS_REPOSITORY = "maven_project"
     //NEXUS_REPO_ID    = "maven_project"
     //ARTVERSION = "${env.BUILD_ID}"
@@ -56,10 +56,11 @@ pipeline {
             withSonarQubeEnv('SonarQube') { 
                 withCredentials([string(credentialsId: 'SonarQube-Token', variable: 'SONAR_TOKEN')]) {
                 sh """
+                
                 mvn sonar:sonar \
-                -Dsonar.projectKey=CICD \
-                -Dsonar.host.url=http://34.216.173.175:9000 \
-                -Dsonar.login=0874788a7d5e03359e8e92777772956cd4025b4f
+                -Dsonar.projectKey=cicd-project \
+                -Dsonar.host.url=http://54.189.94.130:9000 \
+                -Dsonar.login=b0847f5da92fc4ffdac3e735f86184f9c50eb678
                 """
                 }
             }
@@ -70,7 +71,7 @@ pipeline {
            nexusArtifactUploader(
               nexusVersion: 'nexus3',
               protocol: 'http',
-              nexusUrl: '35.91.158.221:8081',
+              nexusUrl: '18.237.126.155:8081',
               groupId: 'webapp',
               version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
               repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
