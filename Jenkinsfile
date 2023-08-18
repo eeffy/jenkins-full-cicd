@@ -10,7 +10,7 @@ pipeline {
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
     //NEXUS_USER = "$NEXUS_CREDS_USR"
     //NEXUS_PASSWORD = "$Nexus-Token"
-    //NEXUS_URL = "18.237.126.155:8081"
+    //NEXUS_URL = "18.237.221.39:9000"
     //NEXUS_REPOSITORY = "maven_project"
     //NEXUS_REPO_ID    = "maven_project"
     //ARTVERSION = "${env.BUILD_ID}"
@@ -59,8 +59,8 @@ pipeline {
                 
                 mvn sonar:sonar \
                 -Dsonar.projectKey=cicd-project \
-                -Dsonar.host.url=http://54.189.94.130:9000 \
-                -Dsonar.login=b0847f5da92fc4ffdac3e735f86184f9c50eb678
+                 -Dsonar.host.url=http://18.237.221.39:9000 \
+                  -Dsonar.login=ab21a119dd649487354e917a6dfb4c1362bfe936
                 """
                 }
             }
