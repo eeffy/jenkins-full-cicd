@@ -59,8 +59,8 @@ pipeline {
                 
                 mvn sonar:sonar \
                 -Dsonar.projectKey=cicd-project \
-                 -Dsonar.host.url=http://18.237.221.39:9000 \
-                  -Dsonar.login=ab21a119dd649487354e917a6dfb4c1362bfe936
+                -Dsonar.host.url=http://18.237.221.39:9000 \
+                -Dsonar.login=ab21a119dd649487354e917a6dfb4c1362bfe936
                 """
                 }
             }
