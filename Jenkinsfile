@@ -10,7 +10,7 @@ pipeline {
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
     //NEXUS_USER = "$NEXUS_CREDS_USR"
     //NEXUS_PASSWORD = "$Nexus-Token"
-    //NEXUS_URL = "35.165.138.4:8081"
+    //NEXUS_URL = "54.200.158.225:8081"
     //NEXUS_REPOSITORY = "maven_project"
     //NEXUS_REPO_ID    = "maven_project"
     //ARTVERSION = "${env.BUILD_ID}"
@@ -59,8 +59,8 @@ pipeline {
                 
                 mvn sonar:sonar \
                 -Dsonar.projectKey=cicd-project \
-                -Dsonar.host.url=http://18.237.221.39:9000 \
-                -Dsonar.login=ab21a119dd649487354e917a6dfb4c1362bfe936
+                -Dsonar.host.url=http://18.237.148.244:9000 \
+                -Dsonar.login=3b7ec10832d8e5303b867b3e3114590df4fd6599
                 """
                 }
             }
@@ -71,7 +71,7 @@ pipeline {
            nexusArtifactUploader(
               nexusVersion: 'nexus3',
               protocol: 'http',
-              nexusUrl: '35.165.138.4:8081',
+              nexusUrl: '54.200.158.225:8081',
               groupId: 'webapp',
               version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
               repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
